@@ -50,7 +50,7 @@ def evaluate_grades(data):
             sys.exit(1)
 
     # b) Weight validation
-    total_weight = sum(row['weight'] for row in data)
+    total_weight = sum(row['weight'] for column in data)
     formative_weight = sum(row['weight'] for row in data if row['group'] == 'Formative')
     summative_weight = sum(row['weight'] for row in data if row['group'] == 'Summative')
 
