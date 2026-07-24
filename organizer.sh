@@ -3,17 +3,7 @@
 # Automates archiving of grades.csv, resets the workspace, and logs the action.
 
  
-# adding the content of the grades.csv file
-touch /home/daniella189/Lab1_Daniella189-hub/grades.csv
-echo " 
-assignment				group 		 score           weight
- Quiz 					Formative	    85 	             20
- Group Exercise 			Formative           40 	             20
- Functions and Debugging Lab		Formative           45               20
- Midterm Project - Simple Calculator	Summative           70               20
- Final Project - Text-Based Game 	Summativ            60               20 " > /home/daniella189/Lab1_Daniella189-hub/grades.csv
-
-# initializing different files and directory with variable
+# adding the content of the grades.csv file 
 dir_arch="archive"
 log_file="organizer.log"
 source_file="grades.csv"

@@ -42,6 +42,9 @@ def evaluate_grades(data):
     {'assignment': 'Quiz', 'group': 'Formative', 'score': 85.0, 'weight': 20.0}
     """
     print("\n--- Processing Grades ---")
+    if len(data) == 0:
+        print("your file is empty")
+        sys.exit(1)
 
     # a) Grade validation
     for row in data:
@@ -50,7 +53,7 @@ def evaluate_grades(data):
             sys.exit(1)
 
     # b) Weight validation
-    total_weight = sum(row['weight'] for column in data)
+    total_weight = sum(row['weight'] for row in data)
     formative_weight = sum(row['weight'] for row in data if row['group'] == 'Formative')
     summative_weight = sum(row['weight'] for row in data if row['group'] == 'Summative')
 
@@ -65,7 +68,7 @@ def evaluate_grades(data):
         sys.exit(1)
 
     # c) GPA calculation
-    total_grade = sum(row['score'] * row['weight'] for row in data) / 100
+    total_grade = sum((row['score'] * row['weight'] for row in data) / 100)
     gpa = (total_grade / 100) * 5.0
 
     # d) Category percentages + pass/fail
@@ -76,20 +79,33 @@ def evaluate_grades(data):
     summative_pct = summative_score / summative_weight
 
     status = "PASSED" if formative_pct >= 50 and summative_pct >= 50 else "FAILED"
+#f) print results
+    print(f"Formative: {formative_pct:.2f}% Summative: {summative_pct:.2f}%")
+    print(f"Total Grade: {total_grade:.2f}  GPA: {gpa:.2f}")
+    print(f"Status: {status}")
+
 
     # e) Resubmission logic
     failed_formatives = [row for row in data if row['group'] == 'Formative' and row['score'] < 50]
     resubmit_list = []
-    if failed_formatives:
-        max_weight = max(row['weight'] for row in failed_formatives)
-        resubmit_list = [row['assignment'] for row in failed_formatives if row['weight'] == max_weight]
+    max_weight =0
 
-    # f) Print results
-    print(f"Formative: {formative_pct:.2f}%   Summative: {summative_pct:.2f}%")
-    print(f"Total Grade: {total_grade:.2f}   GPA: {gpa:.2f}")
-    print(f"Status: {status}")
+    for row in failed_formative:
+        if row['weight'] > max_weight:
+             max_weight = row['weight']
+    resubmission_list = []
+    for row in failed_formative:
+        if row['weight'] == max_weight:
+            resubmission.append(row)
+
     if resubmit_list:
         print("Eligible for resubmission:", ", ".join(resubmit_list))
+
+        for row in resubmission_list:
+            print(f"-{assignment[row]}")
+    else:
+        print("no submission required")
+
 
 
 if __name__ == "__main__":
