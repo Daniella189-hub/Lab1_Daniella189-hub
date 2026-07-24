@@ -33,10 +33,15 @@ this project contains two tools:
 <img width="1218" height="472" alt="image" src="https://github.com/user-attachments/assets/d4322aea-407a-432d-a48e-8f8bf373fd6d" />
 
 
+
+
+ 
 - 2nd:
  you access the repo which is now a directory under the WSL terminal you are using 
 **`cd the_name_of_the_repo`**  (the name of the repo in this example is: **Lab1_Daniella189-hub**
   <img width="938" height="235" alt="image" src="https://github.com/user-attachments/assets/218df6d8-191a-4483-8ab9-fc03a7ec9279" />
+
+
 
 
 - 3rd:
