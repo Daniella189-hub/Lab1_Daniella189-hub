@@ -1,9 +1,9 @@
 # Project name: Lab 1: Grade Evaluator & Organizer
 this project contains two tools:
-## 1. **`grade evaluator.py`**: 
+### 1. **`grade evaluator.py`**: 
    - It reads a csv of assignment grades, validates it and calculates the final GPA, decides Pass/Fail status, and reports any Formative assignments
    - check the eligibility for resubmission.
-## 2. **`organizer.sh`**
+### 2. **`organizer.sh`**
    — archives the current `grades.csv`, timestamps it, resets the
    workspace with a fresh empty `grades.csv`, and logs every run.
 
@@ -14,12 +14,12 @@ this project contains two tools:
 - A `grades.csv` file in the same directory, with the following columns:
 
   ```csv
-  assignment                               group           score,weight
-  Quiz                                     Formative,85,20
-  Group Exercise,                          Formative,40,20
-  Functions and Debugging Lab              Formative,45,20
-  Midterm Project - Simple Calculator      Summative,70,20
-  Final Project - Text-Based Game          Summative,60,20
+  assignment                               group           score        weight
+  Quiz                                     Formative         85             20
+  Group Exercise                           Formative         40             20
+  Functions and Debugging Lab              Formative         45             20
+  Midterm Project - Simple Calculator      Summative         70             20
+  Final Project - Text-Based Game          Summative         60             20
   ```
 
   - `group` must be either `Formative` or `Summative`.
@@ -30,10 +30,14 @@ this project contains two tools:
 ## Running the code
 - 1st:
  clone the repository that we are using form "Github" by accessing it in github under "code" and under "code/https"
+<img width="1218" height="472" alt="image" src="https://github.com/user-attachments/assets/d4322aea-407a-432d-a48e-8f8bf373fd6d" />
+
 
 - 2nd:
  you access the repo which is now a directory under the WSL terminal you are using 
-**`cd the_name_of_the_repo`**
+**`cd the_name_of_the_repo`**  (the name of the repo in this example is: **Lab1_Daniella189-hub**
+  <img width="938" height="235" alt="image" src="https://github.com/user-attachments/assets/218df6d8-191a-4483-8ab9-fc03a7ec9279" />
+
 
 - 3rd:
  You need to recognize which file you would like to run:
@@ -41,10 +45,18 @@ this project contains two tools:
 
 ## 1. Running the "grade-evaluator.py" file
 
-From the project directory:
+From the project directory(**Lab1_Daniella189-hub**):
 
 ```bash
+chmod +x grade-evaluator.py
+```
+next
+```bash
 python3 grade-evaluator.py
+```
+or 
+```bash
+./grade-evaluator.py
 ```
 
 The script will prompt you for a filename:
